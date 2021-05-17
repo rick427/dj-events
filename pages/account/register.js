@@ -15,6 +15,12 @@ export default function RegisterPage() {
 
     const {register, error} = useContext(AuthContext);
 
+    useEffect(() => {
+        if(error){
+            toast.error(error)
+        }
+    }, [error])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(password !== passwordConfirm){
@@ -66,7 +72,7 @@ export default function RegisterPage() {
                         />
                     </div>
 
-                    <input type="submit" value="Login" className="btn"/>
+                    <input type="submit" value="Register" className="btn"/>
                 </form>
 
                 <p>Already have an account ? <Link href="/account/login">Login</Link></p>
